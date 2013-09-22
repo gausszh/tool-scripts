@@ -1,9 +1,10 @@
 #coding=utf8
 from pyquery import PyQuery as pq
+import pdb
 
 #陶瓷
 r = 'http://fair.mingluji.com'
-root = 'http://fair.mingluji.com/Ceramics'
+root = 'http://fair.mingluji.com/Ceramics/%s'
 f=open('/home/gausszh/project/ceramics.csv','w')
 d=pq(url=root)
 tb=d('#bodyContent table td')
@@ -14,22 +15,18 @@ for a in ahref:
     url = r + a.attrib.get('href')
     lt.append(url)
 count = 0
-print len(lt)
 for a in lt:
     count += 1
-    if count > 10:
+    if count > 3:
         break
     d = pq(url=a)
-    print a
     tb = d('#bodyContent table')
-    tb =td.eq(0)
-    tr = tb('tr')
-    m = tr.eq(6)
+    tb  = tb.eq(0)
+    tr = tb.children('tr')
+    m = tr.eq(3)
     span = m('span')
     y = []
     for b in span:
         y.append(b.text)
-        print b.text
-    print '\t'.join(y)
     f.write('%s\n' % '\t'.join(y))
 f.close()
