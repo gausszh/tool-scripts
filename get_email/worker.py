@@ -26,7 +26,7 @@ def parser_email():
             y.append(a.text)
         rd.lpush(RESULT_KEY,json.dumps(y))
 lt = []
-for i in THREADING_NUM:
+for i in range(THREADING_NUM):
     lt.append(threading.Thread(target=parser_email, args=()))
 for th in lt:
     th.start()
