@@ -42,7 +42,7 @@ if __name__ == '__main__':
     hot_line_home_page = sys.argv[1]
     total_page = int(sys.argv[2])
     for i in range(total_page):
-        url_queue.put(hot_line_home_page[:-5] + '-' + str(i) + '.html')
+        url_queue.put(hot_line_home_page[:-5] + '-' + str(i + 1) + '.html')
     thread_list = []
     thread_count = 5
     # 一般起5个线程就可以了
@@ -55,3 +55,4 @@ if __name__ == '__main__':
     print '**********  ok  **************'
     print '总计楼层数为: %s, 提到“犯规”、“哨”的楼层数为: %s' % \
         (total_floors_count, foul_floors_count)
+    print '提哨率为: %.1f%%' % (100.0 * foul_floors_count / total_floors_count)
