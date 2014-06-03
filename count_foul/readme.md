@@ -3,6 +3,3 @@
 
 使用内置的多线程就可以有效利用网络IO了，
 BeautifulSoup解析html页面。
-
-运行count_foul.py程序， 从命令行中输入参数：热线首页的url, 以及需要统计的页数
-比如： python count_foul.py http://bbs.hupu.com/9552100.html 172
