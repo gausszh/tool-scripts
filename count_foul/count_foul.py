@@ -8,7 +8,7 @@ import threading
 import urllib
 
 url_queue = Queue.Queue()
-rex = re.compile(u'(犯规|哨)')  # 需要统计的词
+rex = re.compile(u'(犯规|哨|裁判|太子)')  # 需要统计的词
 total_floors_count = 0  # 总楼数
 foul_floors_count = 0  # 提到犯规、哨的楼数
 
